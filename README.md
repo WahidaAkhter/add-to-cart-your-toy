@@ -1,24 +1,21 @@
+## 🛒 Add-to-Cart Toy Store
+
+A responsive single-page toy store web app built with React. Users can browse toys, add items to a cart, and see the total cost instantly. Fully frontend-based with React Hooks and clean UI design.
+
 # 🌐 My live site link 
 
 click here to visit my site: https://toys-store.netlify.app/
 
-# 🛠️ Technologies Used
-HTML5 – Structured the content and product layout
+### 🛠️ Technologies Used
 
-CSS3 – Designed the look and feel of the store using custom styles
+- **React.js** – Component-based frontend framework
+- **React Hooks** – Used `useState` and `useEffect` for managing state
+- **JavaScript (ES6+)** – Functional logic and interactivity
+- **HTML5 & CSS3** – Semantic layout and custom responsive styling
+- **Font Awesome** – Integrated icons for UI enhancement
+- **React Testing Library** – Unit testing for components
+- **Jest** – Testing framework (via CRA)
+- **Web Vitals** – Performance tracking and monitoring
+- **Netlify** – Deployment and hosting
 
-JavaScript (Vanilla) – Enabled shopping cart functionality, item selection, and total price calculation
-
-Netlify – Used for live deployment and hosting
-
-# 📌 Project Highlights – Toy Store Web App
-Developed an interactive toy store website with shopping cart functionality
-
-Users can add items to cart, view selected products, and see total price updates dynamically
-
-Implemented logic using vanilla JavaScript without libraries or frameworks
-
-Built a responsive layout and product grid using custom CSS for smooth UX across devices
-
-Deployed the site on Netlify for quick and public access
 
