@@ -14,6 +14,7 @@ const Header = ({ cartCount }) => {
                 <nav className="nav-links">
                     <a href="#home" className="nav-link">Home</a>
                     <a href="#shop" className="nav-link">Shop</a>
+                    <a href="#shop" className="nav-link">Collections</a>
                 </nav>
                 <a href="#shop" className="nav-cart-btn">
                     <FontAwesomeIcon icon={faShoppingCart} />

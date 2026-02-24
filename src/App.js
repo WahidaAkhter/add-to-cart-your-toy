@@ -4,12 +4,13 @@ import Header from './Component/Header/Header';
 import Shop from './Component/Shop/Shop';
 import Cart from './Component/Cart/Cart';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight, faCheck, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight, faCheck, faInfoCircle, faTruck, faShieldAlt, faHeadset, faUndo, faChevronDown, faStar } from '@fortawesome/free-solid-svg-icons';
 
 function App() {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
   const [toast, setToast] = useState({ show: false, message: '', type: '' });
+  const [activeFaq, setActiveFaq] = useState(null);
 
   useEffect(() => {
     fetch('fakeData.json')
@@ -67,6 +68,31 @@ function App() {
     document.getElementById('shop')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const toggleFaq = (index) => {
+    setActiveFaq(activeFaq === index ? null : index);
+  };
+
+  const features = [
+    { icon: faTruck, title: 'Free Shipping', desc: 'Free delivery on all orders over $500. Fast & reliable worldwide shipping.' },
+    { icon: faShieldAlt, title: 'Secure Payment', desc: '100% secure checkout with SSL encryption. Your data is always protected.' },
+    { icon: faHeadset, title: '24/7 Support', desc: 'Round-the-clock customer support. We\'re always here to help you.' },
+    { icon: faUndo, title: 'Easy Returns', desc: '30-day hassle-free return policy. No questions asked, full refund.' },
+  ];
+
+  const testimonials = [
+    { name: 'Sarah Johnson', role: 'Happy Parent', rating: 5, text: 'My kids absolutely love the toys from ToyBox! The quality is outstanding and the delivery was super fast. Will definitely order again!' },
+    { name: 'Michael Chen', role: 'Gift Buyer', rating: 5, text: 'Found the perfect birthday gift for my nephew. The Rainbow Xylophone is beautifully crafted, and the price was very reasonable.' },
+    { name: 'Emily Davis', role: 'Teacher', rating: 4, text: 'I ordered several educational toys for my classroom. The Abacus Counting toy is a hit with my students. Great selection!' },
+  ];
+
+  const faqs = [
+    { q: 'How long does shipping take?', a: 'Standard shipping takes 3-5 business days. Express shipping is available for 1-2 day delivery at checkout.' },
+    { q: 'What is your return policy?', a: 'We offer a 30-day hassle-free return policy. If you\'re not satisfied, simply return the product in its original packaging for a full refund.' },
+    { q: 'Are these toys safe for young children?', a: 'Absolutely! All our toys meet international safety standards (ASTM, EN71, CPSIA). Each product is tested for small parts and non-toxic materials.' },
+    { q: 'Do you offer gift wrapping?', a: 'Yes! We offer complimentary gift wrapping on all orders. Simply select the gift wrap option during checkout.' },
+    { q: 'Can I track my order?', a: 'Yes, once your order ships, you\'ll receive a tracking number via email. You can track your package in real-time through our website.' },
+  ];
+
   return (
     <div className="app">
       <Header cartCount={totalItems} />
@@ -111,6 +137,21 @@ function App() {
         </div>
       </section>
 
+      {/* Why Choose Us - Features Strip */}
+      <section className="features-section">
+        <div className="features-grid">
+          {features.map((f, i) => (
+            <div className="feature-card" key={i}>
+              <div className="feature-icon-wrap">
+                <FontAwesomeIcon icon={f.icon} className="feature-icon" />
+              </div>
+              <h3 className="feature-title">{f.title}</h3>
+              <p className="feature-desc">{f.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Shop Section */}
       <main className="main-section" id="shop">
         <div className="shop-wrapper">
@@ -127,6 +168,54 @@ function App() {
           </aside>
         </div>
       </main>
+
+      {/* Customer Testimonials */}
+      <section className="testimonials-section">
+        <div className="section-center">
+          <h2 className="section-heading">What Our <span className="gradient-text">Customers</span> Say</h2>
+          <p className="section-sub">Real stories from real happy parents and gift buyers</p>
+        </div>
+        <div className="testimonials-grid">
+          {testimonials.map((t, i) => (
+            <div className="testimonial-card" key={i}>
+              <div className="testimonial-stars">
+                {Array.from({ length: 5 }, (_, si) => (
+                  <FontAwesomeIcon key={si} icon={faStar} className={si < t.rating ? 'star-gold' : 'star-dim'} />
+                ))}
+              </div>
+              <p className="testimonial-text">"{t.text}"</p>
+              <div className="testimonial-author">
+                <div className="author-avatar">{t.name.charAt(0)}</div>
+                <div>
+                  <p className="author-name">{t.name}</p>
+                  <p className="author-role">{t.role}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* FAQ Accordion */}
+      <section className="faq-section">
+        <div className="section-center">
+          <h2 className="section-heading">Frequently Asked <span className="gradient-text">Questions</span></h2>
+          <p className="section-sub">Everything you need to know before you shop</p>
+        </div>
+        <div className="faq-list">
+          {faqs.map((faq, i) => (
+            <div className={`faq-item ${activeFaq === i ? 'faq-open' : ''}`} key={i}>
+              <button className="faq-question" onClick={() => toggleFaq(i)}>
+                <span>{faq.q}</span>
+                <FontAwesomeIcon icon={faChevronDown} className="faq-chevron" />
+              </button>
+              <div className="faq-answer">
+                <p>{faq.a}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* Footer */}
       <footer className="footer">

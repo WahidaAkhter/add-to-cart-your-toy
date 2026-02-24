@@ -6,10 +6,15 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const Shop = ({ products, handleAddToCart }) => {
     const [searchTerm, setSearchTerm] = useState('');
+    const [activeCategory, setActiveCategory] = useState('All');
 
-    const filteredProducts = products.filter(product =>
-        product.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+    const categories = ['All', ...new Set(products.map(p => p.category).filter(Boolean))];
+
+    const filteredProducts = products.filter(product => {
+        const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase());
+        const matchesCategory = activeCategory === 'All' || product.category === activeCategory;
+        return matchesSearch && matchesCategory;
+    });
 
     return (
         <div className="shop">
@@ -34,6 +39,19 @@ const Shop = ({ products, handleAddToCart }) => {
                 </div>
             </div>
 
+            {/* Category Filter Tabs */}
+            <div className="category-tabs">
+                {categories.map(cat => (
+                    <button
+                        key={cat}
+                        className={`category-tab ${activeCategory === cat ? 'tab-active' : ''}`}
+                        onClick={() => setActiveCategory(cat)}
+                    >
+                        {cat}
+                    </button>
+                ))}
+            </div>
+
             <div className="products-grid">
                 {filteredProducts.length > 0 ? (
                     filteredProducts.map(product => (
@@ -46,9 +64,9 @@ const Shop = ({ products, handleAddToCart }) => {
                 ) : (
                     <div className="no-results">
                         <span className="no-results-emoji">🔍</span>
-                        <p>No toys found matching "<strong>{searchTerm}</strong>"</p>
-                        <button className="clear-search-btn" onClick={() => setSearchTerm('')}>
-                            Clear Search
+                        <p>No toys found matching "<strong>{searchTerm || activeCategory}</strong>"</p>
+                        <button className="clear-search-btn" onClick={() => { setSearchTerm(''); setActiveCategory('All'); }}>
+                            Clear Filters
                         </button>
                     </div>
                 )}
