@@ -103,6 +103,15 @@ function App() {
           <div className="hero-orb orb-1"></div>
           <div className="hero-orb orb-2"></div>
           <div className="hero-orb orb-3"></div>
+          {/* Floating Toy Emojis */}
+          <span className="floating-toy ft-1">🧸</span>
+          <span className="floating-toy ft-2">🎮</span>
+          <span className="floating-toy ft-3">🎲</span>
+          <span className="floating-toy ft-4">🪀</span>
+          <span className="floating-toy ft-5">🚂</span>
+          <span className="floating-toy ft-6">🎨</span>
+          <span className="floating-toy ft-7">🪁</span>
+          <span className="floating-toy ft-8">🎯</span>
         </div>
         <div className="hero-content">
           <span className="hero-badge">✨ Premium Toy Collection</span>
