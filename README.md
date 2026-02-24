@@ -13,7 +13,7 @@
 
 ## 🌐 Live Demo
 
-👉 **Check it out here:** [toys-store.netlify.app](https://toys-store.netlify.app/)
+👉 **Check it out here:** [kids-toystore.netlify.app](https://kids-toystore.netlify.app/)
 
 ---
 
