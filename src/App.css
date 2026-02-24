@@ -49,6 +49,102 @@
   animation-delay: 5s;
 }
 
+/* Floating Toy Emojis */
+.floating-toy {
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0.18;
+  z-index: 0;
+  pointer-events: none;
+  animation: toy-drift 12s ease-in-out infinite;
+}
+
+.ft-1 {
+  top: 12%;
+  left: 8%;
+  font-size: 2.2rem;
+  animation-delay: 0s;
+  animation-duration: 10s;
+}
+
+.ft-2 {
+  top: 20%;
+  right: 12%;
+  font-size: 1.8rem;
+  animation-delay: 1.5s;
+  animation-duration: 14s;
+}
+
+.ft-3 {
+  top: 60%;
+  left: 5%;
+  font-size: 2.5rem;
+  animation-delay: 3s;
+  animation-duration: 11s;
+}
+
+.ft-4 {
+  top: 70%;
+  right: 8%;
+  font-size: 1.6rem;
+  animation-delay: 2s;
+  animation-duration: 13s;
+}
+
+.ft-5 {
+  top: 35%;
+  left: 3%;
+  font-size: 2rem;
+  animation-delay: 4s;
+  animation-duration: 15s;
+}
+
+.ft-6 {
+  bottom: 20%;
+  right: 18%;
+  font-size: 2.3rem;
+  animation-delay: 0.8s;
+  animation-duration: 12s;
+}
+
+.ft-7 {
+  bottom: 30%;
+  left: 18%;
+  font-size: 1.9rem;
+  animation-delay: 5s;
+  animation-duration: 16s;
+}
+
+.ft-8 {
+  top: 15%;
+  right: 30%;
+  font-size: 1.7rem;
+  animation-delay: 2.5s;
+  animation-duration: 9s;
+}
+
+@keyframes toy-drift {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  25% {
+    transform: translateY(-18px) rotate(8deg);
+  }
+
+  50% {
+    transform: translateY(8px) rotate(-5deg);
+  }
+
+  75% {
+    transform: translateY(-12px) rotate(4deg);
+  }
+
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
 @keyframes orb-float {
 
   0%,
