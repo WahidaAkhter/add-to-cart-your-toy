@@ -16,10 +16,14 @@ const Header = ({ cartCount }) => {
                     <a href="#shop" className="nav-link">Shop</a>
                     <a href="#shop" className="nav-link">Collections</a>
                 </nav>
-                <a href="#shop" className="nav-cart-btn">
-                    <FontAwesomeIcon icon={faShoppingCart} />
-                    {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
-                </a>
+                <div className="nav-actions">
+                    <button className="nav-login-btn">Login</button>
+                    <button className="nav-signup-btn">Sign Up</button>
+                    <a href="#shop" className="nav-cart-btn">
+                        <FontAwesomeIcon icon={faShoppingCart} />
+                        {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
+                    </a>
+                </div>
             </div>
         </header>
     );

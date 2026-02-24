@@ -78,6 +78,44 @@
     width: 100%;
 }
 
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-login-btn {
+    padding: 8px 20px;
+    background: transparent;
+    border: 1px solid var(--border-hover);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-login-btn:hover {
+    border-color: var(--accent);
+    color: var(--text-primary);
+}
+
+.nav-signup-btn {
+    padding: 8px 20px;
+    background: linear-gradient(135deg, var(--accent), #e942f5);
+    border-radius: var(--radius-sm);
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: var(--transition);
+    box-shadow: 0 2px 12px rgba(124, 108, 255, 0.3);
+}
+
+.nav-signup-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(124, 108, 255, 0.45);
+}
+
 .nav-cart-btn {
     position: relative;
     display: flex;
